@@ -2,6 +2,29 @@
 
 A tool to help you manage your ssh hosts, making it easily to both quickly list your current hosts, as well as quickly generate new hosts.
 
+## Examples
+
+#### Add a new host
+To add a host with an existing key pair:
+
+```
+ssh-helper add \
+  --name my-test-host \
+  --hostname my.test.host \
+  --user testuser \
+  --identityfile /path/to/private/key
+```
+
+
+To add a host with the key pair being generated:
+```
+ssh-helper add \
+  --name my-test-host \
+  --hostname my.test.host \
+  --user testuser \
+  --newkey 
+```
+
 ## Usage
 
 ```
