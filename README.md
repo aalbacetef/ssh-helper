@@ -23,4 +23,10 @@ Commands:
 ```
 
 
+## Installation
+
+You can use `go get` to install the tool:
+
+`go get github.com/aalbacetef/ssh-helper/cmd/ssh-helper`
+
 
