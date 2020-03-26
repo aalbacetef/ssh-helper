@@ -50,6 +50,13 @@ func main() {
 	listCmd.Usage = commands.ListUsage
 	listUsejson := listCmd.Bool("json", false, "Use JSON as output format. Defaults to text.")
 
+	// Command: Remove
+	// Flags:
+	//  -host
+	removeCmd := flag.NewFlagSet("remove", flag.ExitOnError)
+	removeCmd.Usage = commands.RmUsage
+	removeHost := removeCmd.String("host", "", "Host to remove.")
+
 	// set usage
 	flag.Usage = Usage
 
@@ -67,6 +74,8 @@ func main() {
 		_ = backupCmd.Parse(os.Args[2:])
 	case "list":
 		_ = listCmd.Parse(os.Args[2:])
+	case "remove":
+		_ = removeCmd.Parse(os.Args[2:])
 	default:
 		flag.Parse()
 	}
@@ -141,6 +150,18 @@ func main() {
 
 		commands.ListAll(mode)
 
+		return
+	}
+
+	// Command: Remove
+	if removeCmd.Parsed() {
+		if *removeHost == "" {
+			fmt.Println("error: host must be specified.")
+			removeCmd.Usage()
+			return
+		}
+
+		commands.Remove(*removeHost)
 		return
 	}
 
