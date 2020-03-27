@@ -7,7 +7,9 @@ A tool to help you manage your ssh hosts, making it easy to both quickly list yo
 
 You can use `go get` to install the tool:
 
-`$ go get github.com/aalbacetef/ssh-helper/cmd/ssh-helper`
+```bash
+$ go get github.com/aalbacetef/ssh-helper/cmd/ssh-helper
+```
 
 
 Additionally, you can use the pre-built binary (linux):
@@ -16,7 +18,9 @@ Additionally, you can use the pre-built binary (linux):
 
 To download:
 
-`$ wget https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.1/ssh-helper && chmod +x ssh-helper`
+```bash
+$ wget https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.1/ssh-helper && chmod +x ssh-helper
+```
 
 ## Examples
 
