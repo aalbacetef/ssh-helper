@@ -62,3 +62,6 @@ You can use `go get` to install the tool:
 `go get github.com/aalbacetef/ssh-helper/cmd/ssh-helper`
 
 
+Additionally, you can use the pre-built binary (linux):
+
+[Linux 64-bit](https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.1/ssh-helper)
