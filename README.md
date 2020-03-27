@@ -2,6 +2,22 @@
 
 A tool to help you manage your ssh hosts, making it easy to both quickly list your current hosts, as well as quickly generate new hosts.
 
+
+## Installation
+
+You can use `go get` to install the tool:
+
+`go get github.com/aalbacetef/ssh-helper/cmd/ssh-helper`
+
+
+Additionally, you can use the pre-built binary (linux):
+
+[ssh-helper v0.1.1](https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.1/ssh-helper) (Linux 64-bit)
+
+To download:
+
+`wget https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.1/ssh-helper && chmod +x ssh-helper`
+
 ## Examples
 
 #### Add a new host
@@ -53,12 +69,4 @@ Commands:
   remove    Remove a host from the config. This operation will not delete the key unless asked to.
 
 ```
-
-
-## Installation
-
-You can use `go get` to install the tool:
-
-`go get github.com/aalbacetef/ssh-helper/cmd/ssh-helper`
-
 
