@@ -49,8 +49,8 @@ $ ssh-helper add \
 
 Suppose you already have a host with name `existing-host`, then you could:
 
-```
-ssh-helper remove --host existing-host
+```bash
+$ ssh-helper remove --host existing-host
 ```
 
 
