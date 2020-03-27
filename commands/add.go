@@ -25,26 +25,6 @@ Options:
   --identityfile    Path to private key file
   --newkey          Generate a new private/public key pair
 
-Example:
-  To add a host with an existing key pair:
-      ssh-helper add \
-          --name my-test-host \
-          --hostname my.test.host \
-          --user testuser \
-          --identityfile /path/to/private/key
-
-  To add a host with the key pair being generated:
-      ssh-helper add \
-        --name my-test-host \
-        --hostname my.test.host \
-        --user testuser \
-        --newkey 
-
-  These commands will then allow you to interact with the 
-  remote host in various ways:
-      - ssh my-test-host
-      - git clone my-test-host:account/repo.git (user might need to be git)
-      - scp ./readme.txt my-test-host:~/
 `
 
 func AddUsage() {
