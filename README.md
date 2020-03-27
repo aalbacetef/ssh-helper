@@ -1,6 +1,6 @@
 # SSH Helper
 
-A tool to help you manage your ssh hosts, making it easily to both quickly list your current hosts, as well as quickly generate new hosts.
+A tool to help you manage your ssh hosts, making it easy to both quickly list your current hosts, as well as quickly generate new hosts.
 
 ## Examples
 
