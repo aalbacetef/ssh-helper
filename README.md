@@ -8,7 +8,7 @@ A tool to help you manage your ssh hosts, making it easy to both quickly list yo
 You can use `go get` to install the tool:
 
 ```bash
-$ go get github.com/aalbacetef/ssh-helper/cmd/ssh-helper
+$ go get github.com/aalbacetef/ssh-helper/...
 ```
 
 
