@@ -12,7 +12,7 @@ You can use `go get` to install the tool:
 
 Additionally, you can use the pre-built binary (linux):
 
-[ssh-helper](https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.1/ssh-helper) (Linux 64-bit)
+[ssh-helper v0.1.1](https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.1/ssh-helper) (Linux 64-bit)
 
 
 ## Examples
