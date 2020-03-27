@@ -33,7 +33,6 @@ SSH-Helper
 
 Usage: ssh-helper COMMAND [OPTIONS]
 
-
 A tool to manage your ssh configs. By default uses ~/.ssh/ssh-helper/ to manage all configs.
 
 Commands:
