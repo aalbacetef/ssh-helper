@@ -19,7 +19,7 @@ Additionally, you can use the pre-built binary (linux):
 To download:
 
 ```bash
-$ wget https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.1/ssh-helper && chmod +x ssh-helper
+$ wget https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.2/ssh-helper && chmod +x ssh-helper
 ```
 
 ## Examples
