@@ -7,7 +7,7 @@ A tool to help you manage your ssh hosts, making it easy to both quickly list yo
 
 You can use `go get` to install the tool:
 
-`go get github.com/aalbacetef/ssh-helper/cmd/ssh-helper`
+`$ go get github.com/aalbacetef/ssh-helper/cmd/ssh-helper`
 
 
 Additionally, you can use the pre-built binary (linux):
@@ -16,7 +16,7 @@ Additionally, you can use the pre-built binary (linux):
 
 To download:
 
-`wget https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.1/ssh-helper && chmod +x ssh-helper`
+`$ wget https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.1/ssh-helper && chmod +x ssh-helper`
 
 ## Examples
 
@@ -24,7 +24,7 @@ To download:
 To add a host with an existing key pair:
 
 ```
-ssh-helper add \
+$ ssh-helper add \
   --name my-test-host \
   --hostname my.test.host \
   --user testuser \
@@ -34,7 +34,7 @@ ssh-helper add \
 
 To add a host with the key pair being generated:
 ```
-ssh-helper add \
+$ ssh-helper add \
   --name my-test-host \
   --hostname my.test.host \
   --user testuser \
