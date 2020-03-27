@@ -25,6 +25,16 @@ ssh-helper add \
   --newkey 
 ```
 
+#### Remove an existing host
+
+Suppose you already have a host with name `existing-host`, then you could:
+
+```
+ssh-helper remove --host existing-host
+```
+
+
+
 ## Usage
 
 ```
