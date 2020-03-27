@@ -7,7 +7,7 @@ import (
 	"path"
 	"strings"
 
-	"gitlab.com/aalbacetef/ssh-helper/utils"
+	"github.com/aalbacetef/ssh-helper/utils"
 )
 
 type Fpath string
@@ -86,6 +86,29 @@ func (c *ConfigFile) Add(h HostEntry) error {
 	}
 
 	c.Hosts = append(c.Hosts, h)
+
+	return nil
+}
+
+// Removes the entry with matching host from the config file.
+func (c *ConfigFile) Rm(host string) error {
+
+	// loop and filter the host out
+	newhosts := make([]HostEntry, 0)
+	for _, v := range c.Hosts {
+		if v.Host == host {
+			continue
+		}
+
+		newhosts = append(newhosts, v)
+	}
+
+	if len(newhosts) == len(c.Hosts) {
+		return errors.New("host: '" + host + "' not found")
+	}
+
+	// update hosts
+	c.Hosts = newhosts
 
 	return nil
 }

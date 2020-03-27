@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"gitlab.com/aalbacetef/ssh-helper/configfile"
-	"gitlab.com/aalbacetef/ssh-helper/utils"
+	"github.com/aalbacetef/ssh-helper/configfile"
+	"github.com/aalbacetef/ssh-helper/utils"
 )
 
 const AddMsg = `

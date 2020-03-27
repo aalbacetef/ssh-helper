@@ -3,7 +3,7 @@ package commands
 import (
 	"fmt"
 
-	"gitlab.com/aalbacetef/ssh-helper/configfile"
+	"github.com/aalbacetef/ssh-helper/configfile"
 )
 
 // These are the supported output formats for commands.

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"gitlab.com/aalbacetef/ssh-helper/utils"
+	"github.com/aalbacetef/ssh-helper/utils"
 )
 
 const DefaultBackupDir = "~/.ssh-backups"

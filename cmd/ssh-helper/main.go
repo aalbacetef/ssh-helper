@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"gitlab.com/aalbacetef/ssh-helper/commands"
-	"gitlab.com/aalbacetef/ssh-helper/utils"
+	"github.com/aalbacetef/ssh-helper/commands"
+	"github.com/aalbacetef/ssh-helper/utils"
 )
 
 func main() {
@@ -50,6 +50,13 @@ func main() {
 	listCmd.Usage = commands.ListUsage
 	listUsejson := listCmd.Bool("json", false, "Use JSON as output format. Defaults to text.")
 
+	// Command: Remove
+	// Flags:
+	//  -host
+	removeCmd := flag.NewFlagSet("remove", flag.ExitOnError)
+	removeCmd.Usage = commands.RmUsage
+	removeHost := removeCmd.String("host", "", "Host to remove.")
+
 	// set usage
 	flag.Usage = Usage
 
@@ -67,6 +74,8 @@ func main() {
 		_ = backupCmd.Parse(os.Args[2:])
 	case "list":
 		_ = listCmd.Parse(os.Args[2:])
+	case "remove":
+		_ = removeCmd.Parse(os.Args[2:])
 	default:
 		flag.Parse()
 	}
@@ -144,6 +153,18 @@ func main() {
 		return
 	}
 
+	// Command: Remove
+	if removeCmd.Parsed() {
+		if *removeHost == "" {
+			fmt.Println("error: host must be specified.")
+			removeCmd.Usage()
+			return
+		}
+
+		commands.Remove(*removeHost)
+		return
+	}
+
 	// should not have reached here
 	fmt.Println("unrecognized command: ", os.Args[1])
 	flag.Usage()
@@ -156,14 +177,13 @@ SSH-Helper
 Usage: ssh-helper COMMAND [OPTIONS]
 
 
-A tool to manage your ssh configs. By default 
-uses ~/.ssh/ssh-helper to manage all configs.
+A tool to manage your ssh configs. By default uses ~/.ssh/ssh-helper/ to manage all configs.
 
 Commands:
-  add       Add an ssh config, can generate a key automatically
-  backup    Backs up the current ~/.ssh directory
-  config    Print the current configs of ssh-helper
-  list      List all available hosts
+  add       Add an ssh config, can generate a key automatically.
+  backup    Backs up the current ~/.ssh directory.
+  config    Print the current configs of ssh-helper.
+  list      List all available hosts. Supports outputting in JSON format.
   remove    Remove a host from the config. This operation will not delete the key unless asked to.
 
 
