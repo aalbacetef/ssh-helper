@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"gitlab.com/aalbacetef/ssh-helper/commands"
-	"gitlab.com/aalbacetef/ssh-helper/utils"
+	"github.com/aalbacetef/ssh-helper/commands"
+	"github.com/aalbacetef/ssh-helper/utils"
 )
 
 func main() {

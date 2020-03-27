@@ -7,7 +7,7 @@ import (
 	"path"
 	"strings"
 
-	"gitlab.com/aalbacetef/ssh-helper/utils"
+	"github.com/aalbacetef/ssh-helper/utils"
 )
 
 type Fpath string

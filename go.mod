@@ -1,4 +1,4 @@
-module gitlab.com/aalbacetef/ssh-helper
+module github.com/aalbacetef/ssh-helper
 
 go 1.14
 
