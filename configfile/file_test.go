@@ -37,12 +37,13 @@ func mockconfigfile() (ConfigFile, error) {
 }
 
 func TestConfigFile(t *testing.T) {
-	cfg, err := mockconfigfile()
-	if err != nil {
-		t.Fatal("could not create mock config file: ", err)
-	}
 
 	t.Run("can-add-host", func(tt *testing.T) {
+		cfg, err := mockconfigfile()
+		if err != nil {
+			t.Fatal("could not create mock config file: ", err)
+		}
+
 		mockhost := HostEntry{
 			Host:     "local-test",
 			HostName: "local.test",
@@ -53,7 +54,7 @@ func TestConfigFile(t *testing.T) {
 
 		const expectedhosts = 1
 		if len(cfg.Hosts) != expectedhosts {
-			tt.Fatalf("expected %d hosts, got %d\n", expectedhosts, len(cfg.Hosts))
+			tt.Fatalf("expected %d hosts, got %d", expectedhosts, len(cfg.Hosts))
 		}
 
 		if cfg.Hosts[0].Host != mockhost.Host {
@@ -64,6 +65,26 @@ func TestConfigFile(t *testing.T) {
 			tt.Fatalf("expected hostname %s, got %s", cfg.Hosts[0].HostName, mockhost.HostName)
 		}
 	})
-}
 
-// test the Rm function
+	t.Run("can-rm-host", func(tt *testing.T) {
+		cfg, err := mockconfigfile()
+		if err != nil {
+			t.Fatal("could not create mock config file: ", err)
+		}
+
+		mockhost := HostEntry{
+			Host:     "local-test",
+			HostName: "local.test",
+		}
+		// @NOTE previous test would've caught errors
+		_ = cfg.Add(mockhost)
+		if err := cfg.Rm(mockhost.Host); err != nil {
+			tt.Fatalf("could not rm host: %v", err)
+		}
+
+		if len(cfg.Hosts) != 0 {
+			t.Log(cfg.Hosts)
+			tt.Fatalf("expected empty hosts list, got %d", len(cfg.Hosts))
+		}
+	})
+}
