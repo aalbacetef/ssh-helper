@@ -42,10 +42,28 @@ func TestConfigFile(t *testing.T) {
 		t.Fatal("could not create mock config file: ", err)
 	}
 
-	t.Log("name: ", cfg.Name)
-	t.Log("fpath: ", cfg.Fpath)
-}
+	t.Run("can-add-host", func(tt *testing.T) {
+		mockhost := HostEntry{
+			Host:     "local-test",
+			HostName: "local.test",
+		}
+		if err := cfg.Add(mockhost); err != nil {
+			tt.Fatal("could not add mockhost: ", err)
+		}
 
-// test the Add function
+		const expectedhosts = 1
+		if len(cfg.Hosts) != expectedhosts {
+			tt.Fatalf("expected %d hosts, got %d\n", expectedhosts, len(cfg.Hosts))
+		}
+
+		if cfg.Hosts[0].Host != mockhost.Host {
+			tt.Fatalf("expected host %s, got %s", cfg.Hosts[0].Host, mockhost.Host)
+		}
+
+		if cfg.Hosts[0].HostName != mockhost.HostName {
+			tt.Fatalf("expected hostname %s, got %s", cfg.Hosts[0].HostName, mockhost.HostName)
+		}
+	})
+}
 
 // test the Rm function
