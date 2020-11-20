@@ -14,7 +14,7 @@ $ go get github.com/aalbacetef/ssh-helper/...
 
 Additionally, you can use the pre-built binary (linux):
 
-- [ssh-helper v0.1.2](https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.3/ssh-helper) (Linux 64-bit)
+- [ssh-helper v0.1.3](https://github.com/aalbacetef/ssh-helper/releases/download/v0.1.3/ssh-helper) (Linux 64-bit)
 
 To download:
 
