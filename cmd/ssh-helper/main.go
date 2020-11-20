@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/aalbacetef/ssh-helper/commands"
 	"github.com/aalbacetef/ssh-helper/utils"
 )
 
@@ -19,7 +18,7 @@ func main() {
 	//	-genkey
 	//
 	addCmd := flag.NewFlagSet("add", flag.ExitOnError)
-	addCmd.Usage = commands.AddUsage
+	addCmd.Usage = AddUsage
 	hostname := addCmd.String("hostname", "", "IP address or resolvable domain name.")
 	identityfile := addCmd.String(
 		"identityfile",
@@ -36,7 +35,7 @@ func main() {
 	//  -backup
 	//
 	backupCmd := flag.NewFlagSet("build", flag.ExitOnError)
-	backupCmd.Usage = commands.BackupUsage
+	backupCmd.Usage = BackupUsage
 	backupTag := backupCmd.String("tag", "", "A tag to use to name the backup.")
 	backupPath := backupCmd.String("path", "", "Use this path as the backup directory.")
 
@@ -47,14 +46,14 @@ func main() {
 	//	-json
 	//
 	listCmd := flag.NewFlagSet("list", flag.ExitOnError)
-	listCmd.Usage = commands.ListUsage
+	listCmd.Usage = ListUsage
 	listUsejson := listCmd.Bool("json", false, "Use JSON as output format. Defaults to text.")
 
 	// Command: Remove
 	// Flags:
 	//  -host
 	removeCmd := flag.NewFlagSet("remove", flag.ExitOnError)
-	removeCmd.Usage = commands.RmUsage
+	removeCmd.Usage = RmUsage
 	removeHost := removeCmd.String("host", "", "Host to remove.")
 
 	// set usage
@@ -81,7 +80,7 @@ func main() {
 	}
 
 	// Set output mode to Formatted Text by default
-	mode := commands.FORMATTED_TEXT
+	mode := FORMATTED_TEXT
 
 	// Command: Add
 	if addCmd.Parsed() {
@@ -124,7 +123,7 @@ func main() {
 		}
 
 		// add entry to config file
-		commands.AddEntry(*name, *hostname, *user, *identityfile)
+		AddEntry(*name, *hostname, *user, *identityfile)
 
 		return
 	}
@@ -136,7 +135,7 @@ func main() {
 			return
 		}
 
-		commands.Backup(*backupTag, *backupPath)
+		Backup(*backupTag, *backupPath)
 
 		return
 	}
@@ -145,10 +144,10 @@ func main() {
 	if listCmd.Parsed() {
 		// set output mode to JSON
 		if *listUsejson {
-			mode = commands.JSON
+			mode = JSON
 		}
 
-		commands.ListAll(mode)
+		ListAll(mode)
 
 		return
 	}
@@ -161,7 +160,7 @@ func main() {
 			return
 		}
 
-		commands.Remove(*removeHost)
+		Remove(*removeHost)
 		return
 	}
 
