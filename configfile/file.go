@@ -63,8 +63,8 @@ type ConfigFile struct {
 	Hosts []HostEntry `json:"hosts"`
 }
 
-// Add a host entry to the config file. Does not write it
-// to file.
+// Add a host entry to the config file struct.
+// Does not write it to file.
 func (c *ConfigFile) Add(h HostEntry) error {
 
 	// ensure hostentry has identifier fields stripped of leading and trailing whitespace
